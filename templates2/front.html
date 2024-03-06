@@ -1,0 +1,66 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <style>
+        body {
+            background-image: url("https://th.bing.com/th/id/R.99d3ef7870ade85c36106a13886f63b5?rik=Tzv%2bkV6UFbXGHw&riu=http%3a%2f%2fi.imgur.com%2fHx8QMdX.jpg&ehk=Q%2fZFdZuXfNm3Tpa1bmJdstAPVPITGadVD540HyG2Bk4%3d&risl=&pid=ImgRaw&r=0");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding:2rem;
+        }
+        form {
+            background-color: black;
+            opacity:0.5;
+            padding: 1rem;
+            border-radius: 2px;
+            width: 90%;
+            max-width: 300px;
+        }
+        input[type="text"] {
+            display: block;
+            width: 90%;
+            padding: 0.5rem;
+            margin-bottom: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 0.5rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        h2 {
+            color: white;
+            font-size: 2rem;
+            margin-top:0rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h2>Forest fire  Prediction</h2>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+            <input type="text" name="RH" placeholder="Relative Humidity" required="required" /><br>
+            <input type="text" name="Ws" placeholder="Wind speed" required="required" /><br>
+            <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+            <input type="text" name="FFMC" placeholder="Fine Fuel Moisture Code" required="required" /><br>
+            <input type="text" name="DMC" placeholder="Duff Moisture Code" required="required" /><br>
+            <input type="text" name="ISI" placeholder="Initial Spread Index " required="required" /><br>
+            <input type="text" name="Classes" placeholder="Classes" required="required" /><br>
+            <input type="text" name="Region" placeholder="Region" required="required" /><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    </div>
+    <h2>THE FWI prediction is {{result}}</h2>
+</body>
+</html>
